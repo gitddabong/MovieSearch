@@ -1,5 +1,8 @@
 package com.example.moviesearch.classes
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,24 +47,27 @@ class MovieAdapter(private val items: ArrayList<Movies>) : RecyclerView.Adapter<
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         lateinit var image: ImageView
         lateinit var title: TextView
-        lateinit var year: TextView
-        lateinit var star: TextView
+        lateinit var pubDate: TextView
+        lateinit var userRating: TextView
 
         init {
             image = itemView.findViewById(R.id.image)
             title = itemView.findViewById(R.id.title)
-            year = itemView.findViewById(R.id.year)
-            star = itemView.findViewById(R.id.star)
+            pubDate = itemView.findViewById(R.id.pubDate)
+            userRating = itemView.findViewById(R.id.userRating)
         }
 
-        fun bind(listener:View.OnClickListener, item: Movies) {
+        fun bind(listener: View.OnClickListener, item: Movies) {
 //            image.setImageResource()
             title.text = item.title
-            year.text = item.year.toString()
-            star.text = item.star
-            itemView.setOnClickListener(listener)
+            pubDate.text = item.pubDate
+            userRating.text = item.userRating.toString()
+//            itemView.setOnClickListener(listener)
+            itemView.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.link))
+                itemView.context.startActivity(intent)
+            }
         }
-
     }
 
 }

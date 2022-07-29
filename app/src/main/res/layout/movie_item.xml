@@ -23,23 +23,23 @@
         android:layout_marginHorizontal="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image"
-        app:layout_constraintBottom_toTopOf="@+id/year"/>
+        app:layout_constraintBottom_toTopOf="@+id/pubDate"/>
 
     <TextView
-        android:id="@+id/year"
+        android:id="@+id/pubDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="출시연도 : "
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintStart_toStartOf="@+id/title"
-        app:layout_constraintBottom_toTopOf="@+id/star"/>
+        app:layout_constraintBottom_toTopOf="@+id/userRating"/>
 
     <TextView
-        android:id="@+id/star"
+        android:id="@+id/userRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="평점 : "
-        app:layout_constraintTop_toBottomOf="@+id/year"
+        app:layout_constraintTop_toBottomOf="@+id/pubDate"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintBottom_toBottomOf="@+id/image" />
 
