@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.moviesearch.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_contactFragment"
+            app:destination="@id/recentWordFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/recentWordFragment"
+        android:name="com.example.moviesearch.fragment.RecentWordFragment"
+        android:label="fragment_recent_word"
+        tools:layout="@layout/fragment_recent_word">
+
+    </fragment>
+
+</navigation>
