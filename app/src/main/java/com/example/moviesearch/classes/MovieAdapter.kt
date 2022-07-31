@@ -1,6 +1,5 @@
 package com.example.moviesearch.classes
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -9,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.moviesearch.R
 
 
@@ -28,13 +28,8 @@ class MovieAdapter(private val items: ArrayList<Movies>) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: MovieAdapter.ViewHolder, position: Int) {
         val item = items[position]
-        val listener = View.OnClickListener {
-            if(position!= RecyclerView.NO_POSITION) {
-                listener?.onItemClick(item,position)
-            }
-        }
         holder.apply {
-            bind(listener, item)
+            bind(item)
             itemView.tag = item
         }
     }
@@ -45,24 +40,23 @@ class MovieAdapter(private val items: ArrayList<Movies>) : RecyclerView.Adapter<
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var image: ImageView
-        lateinit var title: TextView
-        lateinit var pubDate: TextView
-        lateinit var userRating: TextView
+        lateinit var imageView: ImageView
+        lateinit var titleView: TextView
+        lateinit var pubDateView: TextView
+        lateinit var userRatingView: TextView
 
         init {
-            image = itemView.findViewById(R.id.image)
-            title = itemView.findViewById(R.id.title)
-            pubDate = itemView.findViewById(R.id.pubDate)
-            userRating = itemView.findViewById(R.id.userRating)
+            imageView = itemView.findViewById(R.id.image)
+            titleView = itemView.findViewById(R.id.title)
+            pubDateView = itemView.findViewById(R.id.pubDate)
+            userRatingView = itemView.findViewById(R.id.userRating)
         }
 
-        fun bind(listener: View.OnClickListener, item: Movies) {
-//            image.setImageResource()
-            title.text = item.title
-            pubDate.text = item.pubDate
-            userRating.text = item.userRating.toString()
-//            itemView.setOnClickListener(listener)
+        fun bind(item: Movies) {
+            Glide.with(itemView).load(item.image).into(imageView)
+            titleView.text = item.title
+            pubDateView.text = item.pubDate
+            userRatingView.text = item.userRating
             itemView.setOnClickListener {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.link))
                 itemView.context.startActivity(intent)
