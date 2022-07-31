@@ -63,7 +63,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-script-runtime:1.7.10"
 
     // coroutine
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
