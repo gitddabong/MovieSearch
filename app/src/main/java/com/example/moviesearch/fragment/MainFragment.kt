@@ -78,7 +78,7 @@ class MainFragment : Fragment() {
 
     private fun getResultSearch(word: String) {
         val apiInterface: ApiInterface = ApiClient.instance!!.create(ApiInterface::class.java)
-        val call: Call<String> = apiInterface.getSearchResult(clientId, clientSecret, "movie.json", word)
+        val call: Call<String> = apiInterface.getSearchResult(clientId, clientSecret, "movie.json", word, 100)
         call.enqueue(object : Callback<String?> {
             override fun onResponse(call: Call<String?>, response: Response<String?>) {
                 if (response.isSuccessful && response.body() != null) {

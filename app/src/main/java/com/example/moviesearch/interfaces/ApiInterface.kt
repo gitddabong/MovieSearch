@@ -1,6 +1,5 @@
 package com.example.moviesearch.interfaces
 
-import com.example.moviesearch.classes.Movies
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -14,5 +13,6 @@ interface ApiInterface {
         @Header("X-Naver-Client-Secret") clientSecret: String,
         @Path("type") type: String,
         @Query("query") query: String,
+        @Query("display") display: Int? = null
     ): Call<String>
 }
